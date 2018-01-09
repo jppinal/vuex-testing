@@ -2,13 +2,33 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import HelloWorld from '@/components/HelloWorld'
 
+Vue.use(Vuex)
+
+// mock moduleA store
+const moduleA = {
+  namespaced: true,
+  actions: {
+    setNumber ({ commit }, number) {
+    }
+  },
+  getters: {
+    moreThanTen: state => () => {
+      return true
+    }
+  }
+}
+
 describe('HelloWorld.vue', () => {
   const vm = new Vue({
     template: '<div><test></test></div>',
     components: {
-      'test': ComponentAWithMock
+      'test': HelloWorld
     },
-    store: new Vuex.Store(mockedStore)
+    store: new Vuex.Store({
+      modules: {
+        moduleA
+      }
+    })
   }).$mount()
 
   it('should render correct h1 message', () => {
