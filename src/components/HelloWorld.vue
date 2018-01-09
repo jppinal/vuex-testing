@@ -13,11 +13,27 @@
         a(href="http://vuex.vuejs.org/" target="_blank") vuex
       li
         a(href="http://vue-loader.vuejs.org/" target="_blank") vue-loader
+    h3 write a number
+    input(type="number" v-model.number="number")
+    input(type="submit" value="send" @click="setNumber(number)")
+    p(v-if="moreThanTen()") The number is greater than 10
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'HelloWorld',
+  methods: {
+    ...mapActions('moduleA', [
+      'setNumber'
+    ])
+  },
+  computed: {
+    ...mapGetters('moduleA', [
+      'moreThanTen'
+    ])
+  },
   data () {
     return {
       msg: 'Vuex testing App'
