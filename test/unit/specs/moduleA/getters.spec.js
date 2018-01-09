@@ -21,5 +21,4 @@ describe('getters', () => {
     // assert result
     expect(result).to.equal(true)
   })
-
 })

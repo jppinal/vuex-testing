@@ -2,7 +2,6 @@ import Vue from 'vue'
 import HelloWorld from '@/components/HelloWorld'
 
 describe('HelloWorld.vue', () => {
-
   const Constructor = Vue.extend(HelloWorld)
   const vm = new Constructor().$mount()
 
@@ -12,13 +11,14 @@ describe('HelloWorld.vue', () => {
   })
 
   it('should render correct h2 texts', () => {
-    expect(vm.$el.querySelectorAll('.hello h2').map((el) =>{
-        return el.textContent
-    }))
+    let list = [].slice.call(vm.$el.querySelectorAll('.hello h2'))
+    .map((el) => {
+      return el.textContent
+    })
+    expect(list)
     .to.have.ordered.members([
-        'Essential Links',
-        'Ecosystem'
+      'Essential Links',
+      'Ecosystem'
     ])
   })
-
 })
