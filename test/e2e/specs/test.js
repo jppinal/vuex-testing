@@ -15,7 +15,7 @@ module.exports = {
     browser.end()
   },
 
-  'test App Rendering': function(browser) {
+  'step 0: rendering': function(browser) {
     browser.expect.element('.hello').to.be.present
     browser.expect.element('img').to.be.present
     browser.expect.element('.hello h1').to.be.visible
@@ -34,7 +34,7 @@ module.exports = {
     browser.saveScreenshot('test/e2e/testAppRendering.png')
   },
 
-  'test App Number Functionality': function(browser) {
+  'step 1: write 13 (>10)': function(browser) {
     browser.setValue('#numb', '13', function() {
       browser.click('#send', function() {
         // #result must be shown
@@ -45,7 +45,7 @@ module.exports = {
     })
   },
 
-  'test App hide result': function(browser) {
+  'step 2: write 9 (!>10)': function(browser) {
     browser.expect.element('#numb').to.have.value.equals(13)
     browser.expect.element('#result').to.be.present
     browser.clearValue('#numb', function() {
