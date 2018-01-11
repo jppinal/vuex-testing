@@ -23,7 +23,7 @@ module.exports = {
   'step 1: click @who': function(browser) {
     browser.click('#who', function() {
       // #celebs-list must be shown
-      browser.expect.element('#celebs-list').to.be.visible.after(500)
+      browser.expect.element('#celebs-list').to.be.visible.after(2000)
       browser.saveScreenshot('test/e2e/specs/test-celbs/step1_click@who.png')
     })
   }
