@@ -17,16 +17,24 @@
     input#numb(type="number" v-model.number="number")
     input#send(type="submit" value="send" @click="setNumber(number)")
     p#result(v-if="moreThanTen()") The number is greater than 10
+    celebs-born-today
 </template>
 
 <script>
+import CelebsBornToday from './CelebsBornToday'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'HelloWorld',
+  components: {
+    CelebsBornToday
+  },
   methods: {
     ...mapActions('moduleA', [
       'setNumber'
+    ]),
+    ...mapActions('moduleB', [
+      'fetchCelebsBornToday'
     ])
   },
   computed: {
@@ -36,7 +44,8 @@ export default {
   },
   data () {
     return {
-      msg: 'Vuex testing App'
+      msg: 'Vuex testing App',
+      number: 0
     }
   }
 }
