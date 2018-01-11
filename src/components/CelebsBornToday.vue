@@ -1,9 +1,9 @@
 <template lang="pug">
   .celebs
     h3 5 Spanish Celebs Born Today
-    input#send(type="submit" value="who?" @click="fetchCelebsBornToday()")
+    input#who(type="submit" value="who?" @click="fetchCelebsBornToday()")
     template
-      ul(v-if="celebsList().length > 0")
+      ul#celebs-list(v-if="celebsList().length > 0")
        li(v-for="celeb in celebsList()")
         a(:href="celeb.href") {{celeb.name}}
 </template>

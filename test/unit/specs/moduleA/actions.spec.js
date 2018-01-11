@@ -3,7 +3,7 @@ import { testAction } from './../helpers'
 
 const { toggle, increase, setNumber } = moduleA.actions
 
-describe('actions', () => {
+describe('moduleA actions', () => {
   it('toggle', (done) => {
     // test action (action, payload, state, expectedMutations, done)
     testAction(toggle, null, {}, [

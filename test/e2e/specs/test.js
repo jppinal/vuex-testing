@@ -26,7 +26,7 @@ module.exports = {
     browser.expect.element('#vuejs').to.have.css('color').which.equals('rgba(66, 185, 131, 1)') // Color converted needed?
     browser.expect.element('#numb').to.be.an('input')
     browser.expect.element('#numb').to.have.attribute('type').equals('number')
-    browser.expect.element('#numb').to.have.value.equals('')
+    browser.expect.element('#numb').to.have.value.equals(0)
     browser.expect.element('#send').to.be.an('input')
     browser.expect.element('#send').to.have.attribute('type').equals('submit')
     browser.expect.element('#send').to.have.value.equals('send')
@@ -35,7 +35,7 @@ module.exports = {
   },
 
   'step 1: write 13 (>10)': function(browser) {
-    browser.setValue('#numb', '13', function() {
+    browser.setValue('#numb', 13, function() {
       browser.click('#send', function() {
         // #result must be shown
         browser.expect.element('#result').to.be.visible
@@ -50,7 +50,7 @@ module.exports = {
     browser.expect.element('#result').to.be.present
     browser.clearValue('#numb', function() {
       browser.expect.element('#numb').to.have.value.equals('')
-      browser.setValue('#numb', '9', function() {
+      browser.setValue('#numb', 9, function() {
         browser.click('#send', function() {
           // #result must be hidden
           browser.expect.element('#result').to.not.be.present

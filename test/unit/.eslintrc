@@ -1,9 +1,12 @@
 {
-  "env": { 
+  "env": {
     "mocha": true
   },
-  "globals": { 
+  "globals": {
     "expect": true,
     "sinon": true
+  },
+  "rules": {
+    "import/no-webpack-loader-syntax": 0
   }
 }

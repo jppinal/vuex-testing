@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Vuex)
+
+// create mocked component
+const HelloWorldInjector = require('!!vue-loader?inject!@/components/HelloWorld.vue')
+const HelloWorldWithMocks = HelloWorldInjector({
+  './CelebsBornToday': Vue.extend({ template: '<div id="CelebsBornToday"></div>' })
+})
 
 // mock moduleA store
 const moduleA = {
@@ -22,7 +28,7 @@ describe('HelloWorld.vue', () => {
   const vm = new Vue({
     template: '<div><test></test></div>',
     components: {
-      'test': HelloWorld
+      'test': HelloWorldWithMocks
     },
     store: new Vuex.Store({
       modules: {

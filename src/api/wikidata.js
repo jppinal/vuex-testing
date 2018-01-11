@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const wikidata = axios.create({
+export const wikidata = axios.create({
   baseURL: 'https://query.wikidata.org/',
   headers: {
     Accept: 'application/sparql-results+json'
@@ -21,13 +21,14 @@ export const getCelebsBornByDate = (day, month) => {
      ?person wdt:P27 wd:Q29.
     }
     LIMIT 5`
-    console.log(query)
     wikidata.get('sparql', { params: { query } })
       .then((res) => {
         if (res.status < 300 && res.data) {
           var response = []
           if (res.data.results && res.data.results.bindings) response = res.data.results.bindings
           resolve(response)
+        } else {
+          resolve(undefined)
         }
       })
   })

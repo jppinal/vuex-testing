@@ -3,7 +3,7 @@ import moduleA from '@/store/moduleA'
 
 const { SET_BOOL, ADDTO_NUMBER, SET_NUMBER } = moduleA.mutations
 
-describe('mutations', () => {
+describe('moduleA mutations', () => {
   it('SET_BOOL (true) returns true', () => {
     // mock state
     const _state = { bool: false }

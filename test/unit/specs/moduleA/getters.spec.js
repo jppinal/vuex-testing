@@ -3,7 +3,7 @@ import moduleA from '@/store/moduleA'
 
 const { moreThanTen } = moduleA.getters
 
-describe('getters', () => {
+describe('moduleA getters', () => {
   it('moreThanTen (5) returns false', () => {
     // mock state
     const _state = { number: 5 }
