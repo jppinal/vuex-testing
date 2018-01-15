@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import CelebsBornToday from './CelebsBornToday'
+import CelebsBornToday from '@/components/CelebsBornToday'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
