@@ -1,19 +1,16 @@
 <template lang="pug">
-  #login
-    h2 Logged in
+  #oauth
+    h1 OAuth
+    router-view
 </template>
 
 <script>
-
 export default {
-  name: 'EventBrite',
+  name: 'OAuth',
   methods: {
   },
   data () {
     return {
-      email: '',
-      pwd: '',
-      error: false
     }
   }
 }

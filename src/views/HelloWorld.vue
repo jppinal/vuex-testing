@@ -13,6 +13,13 @@
         a(href="http://vuex.vuejs.org/" target="_blank") vuex
       li
         a(href="http://vue-loader.vuejs.org/" target="_blank") vue-loader
+    h2 Authorization Examples
+    ul
+      li
+        a(href="/oauth") OAuth
+      li
+        a(href="/private") Private
+    h2 Test Example
     h3 write a number
     input#numb(type="number" v-model.number="number")
     input#send(type="submit" value="send" @click="setNumber(number)")

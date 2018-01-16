@@ -1,7 +1,7 @@
 <template lang="pug">
   #login
-    h2 Login
-    form(@submit.prevent="login" autocomplete="off")
+    h2 OAuth
+    form(@submit.prevent="logIn({ email, pwd })" autocomplete="off")
       input#user_email(type="email" v-model.lazy="email" placeholder="mail@example.com")
       input#user_pwd(type="password" v-model.lazy="pwd")
       input#login(type="submit" value="login")
@@ -9,17 +9,21 @@
 </template>
 
 <script>
-import auth from '@/auth'
+import { mapActions } from 'vuex'
+/* TODO: vuex */
 
 export default {
   name: 'LogIn',
   methods: {
-    login () {
-      auth.login(this.email, this.pwd, (err, loggedIn) => {
+    ...mapActions('auth', [
+      'logIn'
+    ])
+    /* login () {
+      thi.login(this.email, this.pwd, (err, loggedIn) => {
         if (!loggedIn || err) this.error = true
         else this.$router.replace(this.$route.query.redirect || '/')
       })
-    }
+    } */
   },
   data () {
     return {

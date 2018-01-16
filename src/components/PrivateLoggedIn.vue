@@ -1,26 +1,19 @@
 <template lang="pug">
-  #private
-    h1 Private Area
-    a
-      router-link(v-if="loggedIn" to="/private/logout") Log out
-    router-view
+  #login
+    h2 Logged in
 </template>
 
 <script>
-import auth from '@/api/auth'
 /* TODO: vuex */
 export default {
-  name: 'Private',
+  name: 'EventBrite',
   methods: {
   },
   data () {
     return {
-      loggedIn: auth.loggedIn()
-    }
-  },
-  created () {
-    auth.onChange = loggedIn => {
-      this.loggedIn = loggedIn
+      email: '',
+      pwd: '',
+      error: false
     }
   }
 }

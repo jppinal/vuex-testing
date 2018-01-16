@@ -6,10 +6,7 @@ export default {
   namespaced: true,
   state () {
     return {
-      access_token: undefined,
-      id_token: undefined,
-      expires_at: undefined,
-      authenticated: false
+      token: undefined
     }
   },
   getters,
